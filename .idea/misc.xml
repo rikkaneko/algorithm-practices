@@ -5,6 +5,7 @@
     <sourceRoots>
       <file path="$PROJECT_DIR$/data_structure" />
       <file path="$PROJECT_DIR$/include" />
+      <file path="$PROJECT_DIR$/searching" />
       <file path="$PROJECT_DIR$/sorting" />
     </sourceRoots>
   </component>

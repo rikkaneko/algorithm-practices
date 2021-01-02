@@ -2,10 +2,10 @@
  * Copyright (c) 2020 rikkaneko. */
 #include "common.h"
 
-vector<double> parse_arg(int argc, char **argv, int n) {
-    if (n == -1 || n > argc) n = argc;
+vector<double> parse_arg(int argc, char **argv) {
     vector<double> sequence;
-    for (int i = 1; i < n; ++i) {
+    sequence.reserve(argc);
+    for (int i = 1; i < argc; ++i) {
         double result;
         try { result = std::stod(argv[i]); }
         catch (...) { continue; }

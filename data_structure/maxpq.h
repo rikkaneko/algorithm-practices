@@ -4,9 +4,9 @@
 #include "common.h"
 
 /* Binary Heap (a.k.a Priority Queue)
- * Insert Complexity: lgN
- * Pop Max Complexity: lgN
- * Get Max Complexity: lgN */
+ * Insert Complexity: O(lgN)
+ * Pop Max Complexity: O(lgN)
+ * Get Max Complexity: O(lgN) */
 class PriorityQueue {
 public:
     explicit PriorityQueue(int n = 64): arr_(n) {}

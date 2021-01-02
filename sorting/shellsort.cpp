@@ -1,19 +1,20 @@
 /* This file is part of algorithm_practices.
  * Copyright (c) 2020 rikkaneko. */
 #include "shellsort.h"
+#include "binary_search.h"
 
 int Shellsort::get_max_gap(int n) {
+    int st = 0, ed = sizeof(tokuda_seq) / sizeof(tokuda_seq[0]) - 1;
     if (n <= 1) return 0;
-    int st = 0, ed = sizeof(tokuda_seq) - 1;
-    while (st < ed) {
-        int mid = st + ((ed - st) / 2);
+    if (n > tokuda_seq[ed]) return ed;
+    int mid;
+    while (st <= ed) {
+        mid = st + ((ed - st) / 2);
         if (n > tokuda_seq[mid]) st = mid + 1;
-        else if (n < tokuda_seq[mid]) ed = mid;
-        else if (n == tokuda_seq[mid]) {
-            return mid - 1;
-        }
+        else if (n < tokuda_seq[mid]) ed = mid - 1;
+        else return mid - 1;
     }
-    return (tokuda_seq[st] < n) ? st : st - 1;
+    return (tokuda_seq[mid] < n) ? mid : mid - 1;
 }
 
 void Shellsort::sort(vector<double> &arr, int st, int ed) {

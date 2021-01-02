@@ -17,7 +17,7 @@ public:
     
     // Shell sort
     static void sort(vector<double> &arr, int st = 0, int ed = -1);
+    static int get_max_gap(int n);
 
 private:
-    static int get_max_gap(int n);
 };

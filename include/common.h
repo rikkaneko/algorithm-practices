@@ -7,8 +7,9 @@
 #include <random>
 using std::vector;
 using std::swap;
+using std::string;
 
-vector<double> parse_arg(int argc, char **argv, int n = -1);
+vector<double> parse_arg(int argc, char **argv);
 
 template<typename T>
 void print_arr(const vector<T> &arr, int st = 0, int ed = -1) {
