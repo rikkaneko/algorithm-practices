@@ -4,7 +4,8 @@
 
 int main(int argc, char *argv[]) {
     auto arr = parse_arg(argc, argv);
+    if (arr.empty()) return 0;
     double val = arr[arr.size() - 1];
-    std::cout << BinarySearch::search(arr, val, BinarySearch::less_than, 1, arr.size() - 1) << std::endl;
+    std::cout << BinarySearch::search(arr, val, BinarySearch::less_than, 0, arr.size() - 1) << std::endl;
     return 0;
 }

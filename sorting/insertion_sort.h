@@ -16,8 +16,4 @@ public:
     static void sort_v2(vector<double> &arr, int st = 0, int ed = -1);
     // Insertion sort: Use binary search to find the insertion port
     static void sort_v3(vector<double> &arr, int st = 0, int ed = -1);
-
-
-private:
-    static int binary_search_nearest(const vector<double> &arr, double target, int st, int ed);
 };

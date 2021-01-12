@@ -5,10 +5,10 @@
 void LinkedList::insert(const string &key, const string &val) {
     Node *ptr = __search(key);
     if (ptr) {
-        ptr->data_.second = val;
+        ptr->value_ = val;
         return;
     } else {
-        ptr = new Node({ key, val }, end_);
+        ptr = new Node(key, val, end_, nullptr);
         if (end_) end_->next_ = ptr;
         end_ = ptr;
         if (!head_) head_ = ptr;
@@ -28,7 +28,7 @@ bool LinkedList::remove(const string &key) {
     return true;
 }
 
-const LinkedList::Node *LinkedList::search(const string &key) const {
+const LinkedList::Node *LinkedList::find(const string &key) const {
     Node *ptr = __search(key);
     if (!ptr) return nullptr;
     return ptr;
@@ -49,7 +49,7 @@ void LinkedList::clear() {
 LinkedList::Node *LinkedList::__search(const string &key) const {
     Node *ptr = head_;
     while (ptr) {
-        if (ptr->data_.first == key) return ptr;
+        if (ptr->key_ == key) return ptr;
         else ptr = ptr->next_;
     }
     return nullptr;

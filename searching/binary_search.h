@@ -5,10 +5,7 @@
 
 /* Binary Search
  * Search Worst Complexity: O(lgN)
- * Search Average Complexity: O(N)
- * Insert Worst Complexity: O(lgN)
- * Insert Average Complexity: O(N/2)
- */
+ * Search Average Complexity: O(lgN) */
 class BinarySearch {
 public:
     static constexpr int exact = 0; // search for the exact element, otherwise return -1
