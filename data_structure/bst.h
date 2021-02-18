@@ -14,48 +14,23 @@ using std::queue;
  * Insert Average Complexity: O(lgN)
  * Delete Worst Complexity: O(N)
  * Delete Average Complexity: O(sqrt(N)) */
-class BST {
+class bst {
 public:
-    class Iterator;
+    class iterator;
     
-    class Node {
-        friend class BST;
+    struct node {
+        string key;
+        string value;
+        node *left = nullptr;
+        node *right = nullptr;
         
-        friend class Iterator;
-    
-    public:
-        Node(const string &key, const string &val, Node *left = nullptr, Node *right = nullptr)
-                : left_(left), right_(right), key_(key), val_(val) {}
-        
-        Node(Node &node) {
-            key_ = node.key_;
-            val_ = node.val_;
-        }
-        
-        Node(Node &&node) noexcept {
-            key_ = std::move(node.key_);
-            val_ = std::move(node.val_);
-        }
-        
-        ~Node() {}
-        
-        const string &get_key() const { return key_; }
-        
-        const string &get_val() const { return val_; }
-    
-    private:
-        Node *left_ = nullptr;
-        Node *right_ = nullptr;
-        string key_;
-        string val_;
-        int count_ = 1;
     };
     
-    class Iterator {
+    class iterator {
     public:
-        explicit Iterator(const BST &bst): bst_(bst), nodes_(bst.inorder()) {}
+        explicit iterator(const bst &bst): bst_(bst), nodes_(bst.inorder()) {}
         
-        const Node *get() const {
+        const node *get() const {
             if (nodes_.empty()) return nullptr;
             return nodes_.front();
         }
@@ -65,33 +40,33 @@ public:
         void operator++() { nodes_.pop(); }
     
     private:
-        queue<const Node *> nodes_;
-        const BST &bst_;
+        queue<const node *> nodes_;
+        const bst &bst_;
     };
     
     void insert(const string &key, const string &val);
-    const Node *find(const string &key) const;
+    const node *find(const string &key) const;
     bool remove(const string &key);
-    optional<Node> remove_min();
-    optional<Node> remove_max();
-    queue<const Node *> inorder() const;
+    optional<node> remove_min();
+    optional<node> remove_max();
+    queue<const node *> inorder() const;
     void clear();
     
-    Iterator get_iterator() const { return Iterator(*this); }
+    iterator get_iterator() const { return iterator(*this); }
     
     int get_size() const { return count_; }
     
-    ~BST() { clear(); }
+    ~bst() { clear(); }
 
 private:
-    Node *__insert(Node *root, const string &key, const string &val);
-    static Node *__find(Node *root, const string &key);
-    static Node *__find_min(Node *root);
-    static Node *__find_max(Node *root);
-    static void __inorder(Node *root, queue<const Node *> &nodes);
-    Node *__remove(Node *root, const string &key);
-    void __clear(Node *root);
-    Node *root_ = nullptr;
+    node *insert(node *root, const string &key, const string &val);
+    static node *find(node *root, const string &key);
+    static node *find_min(node *root);
+    static node *find_max(node *root);
+    static void inorder(node *root, queue<const node *> &nodes);
+    node *remove(node *root, const string &key);
+    void clear(node *root);
+    node *root_ = nullptr;
     int count_ = 0;
 };
 

@@ -2,42 +2,42 @@
  * Copyright (c) 2021 rikkaneko. */
 #include "linked_list.h"
 
-void LinkedList::insert(const string &key, const string &val) {
-    Node *ptr = __search(key);
+void linked_list::insert(const string &key, const string &val) {
+    node *ptr = __search(key);
     if (ptr) {
-        ptr->value_ = val;
+        ptr->value = val;
         return;
     } else {
-        ptr = new Node(key, val, end_, nullptr);
-        if (end_) end_->next_ = ptr;
+        ptr = new node { .key = key, .value = val, .prev = end_ };
+        if (end_) end_->next = ptr;
         end_ = ptr;
         if (!head_) head_ = ptr;
         ++count_;
     }
 }
 
-bool LinkedList::remove(const string &key) {
-    Node *ptr = __search(key);
+bool linked_list::remove(const string &key) {
+    node *ptr = __search(key);
     if (!ptr) return false;
-    if (ptr->prev_) ptr->prev_->next_ = ptr->next_;
-    if (ptr->next_) ptr->next_->prev_ = ptr->prev_;
-    if (head_ == ptr) head_ = ptr->next_;
-    if (end_ == ptr) end_ = ptr->prev_;
+    if (ptr->prev) ptr->prev->next = ptr->next;
+    if (ptr->next) ptr->next->prev = ptr->prev;
+    if (head_ == ptr) head_ = ptr->next;
+    if (end_ == ptr) end_ = ptr->prev;
     delete ptr;
     --count_;
     return true;
 }
 
-const LinkedList::Node *LinkedList::find(const string &key) const {
-    Node *ptr = __search(key);
+const linked_list::node *linked_list::find(const string &key) const {
+    node *ptr = __search(key);
     if (!ptr) return nullptr;
     return ptr;
 }
 
-void LinkedList::clear() {
-    Node *ptr = head_, *next;
+void linked_list::clear() {
+    node *ptr = head_, *next;
     while (ptr) {
-        next = ptr->next_;
+        next = ptr->next;
         delete ptr;
         ptr = next;
     }
@@ -46,11 +46,11 @@ void LinkedList::clear() {
     end_ = nullptr;
 }
 
-LinkedList::Node *LinkedList::__search(const string &key) const {
-    Node *ptr = head_;
+linked_list::node *linked_list::__search(const string &key) const {
+    node *ptr = head_;
     while (ptr) {
-        if (ptr->key_ == key) return ptr;
-        else ptr = ptr->next_;
+        if (ptr->key == key) return ptr;
+        else ptr = ptr->next;
     }
     return nullptr;
 }

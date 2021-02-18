@@ -19,4 +19,4 @@ add_executable(test_linked_list test/test_linked_list.cpp data_structure/linked_
 
 add_executable(test_binary_search test/test_binary_search.cpp searching/binary_search.cpp include/common.cpp)
 
-add_executable(test_bst test/test_bst.cpp data_structure/bst.cpp include/common.cpp)
+add_executable(test_bst test/test_bst.cpp data_structure/bst.cpp data_structure/rbt.cpp include/common.cpp)

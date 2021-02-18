@@ -6,7 +6,7 @@
 /* Binary Search
  * Search Worst Complexity: O(lgN)
  * Search Average Complexity: O(lgN) */
-class BinarySearch {
+class binary_search {
 public:
     static constexpr int exact = 0; // search for the exact element, otherwise return -1
     static constexpr int nearest = 1; // search for the closest or equal element

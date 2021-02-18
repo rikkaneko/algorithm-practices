@@ -3,7 +3,7 @@
 #pragma once
 #include "common.h"
 
-class Knuthshuffle {
+class knuthshuffle {
 public:
     // Knuth Shuffle
     static void shuffle(vector<double> &arr, int st = 0, int ed = -1);

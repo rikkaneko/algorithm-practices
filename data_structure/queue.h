@@ -7,9 +7,9 @@
  * Insert Complexity: O(lgN)
  * Pop Max Complexity: O(lgN)
  * Get Max Complexity: O(lgN) */
-class PriorityQueue {
+class queue {
 public:
-    explicit PriorityQueue(int n = 64): arr_(n) {}
+    explicit queue(int n = 64): arr_(n) {}
     
     int get_size() const { return count_; }
     

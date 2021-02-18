@@ -2,85 +2,85 @@
  * Copyright (c) 2021 rikkaneko. */
 #include "bst.h"
 
-void BST::insert(const string &key, const string &val) {
-    root_ = __insert(root_, key, val);
+void bst::insert(const string &key, const string &val) {
+    root_ = insert(root_, key, val);
 }
 
-const BST::Node *BST::find(const string &key) const {
-    return __find(root_, key);
+const bst::node *bst::find(const string &key) const {
+    return find(root_, key);
 }
 
-bool BST::remove(const string &key) {
-    if (!__find(root_, key)) return false;
-    __remove(root_, key);
+bool bst::remove(const string &key) {
+    if (!find(root_, key)) return false;
+    remove(root_, key);
     return true;
 }
 
-optional<BST::Node> BST::remove_min() {
-    Node *ptr = __find_min(root_);
+optional<bst::node> bst::remove_min() {
+    node *ptr = find_min(root_);
     if (!ptr) return {};
-    Node node(*ptr);
-    __remove(root_, ptr->key_);
+    node node(*ptr);
+    remove(root_, ptr->key);
     return node;
 }
 
-optional<BST::Node> BST::remove_max() {
-    Node *ptr = __find_max(root_);
+optional<bst::node> bst::remove_max() {
+    node *ptr = find_max(root_);
     if (!ptr) return {};
-    Node node(*ptr);
-    __remove(root_, ptr->key_);
+    node node(*ptr);
+    remove(root_, ptr->key);
     return node;
 }
 
-void BST::clear() {
-    __clear(root_);
+void bst::clear() {
+    clear(root_);
     root_ = nullptr;
     count_ = 0;
 }
 
-BST::Node *BST::__insert(Node *root, const string &key, const string &val) {
+bst::node *bst::insert(node *root, const string &key, const string &val) {
     if (!root) {
         ++count_;
-        return new Node(key, val);
+        return new node { .key = key, .value = val };
     }
-    if (root->key_ > key) root->left_ = __insert(root->left_, key, val);
-    else if (root->key_ < key) root->right_ = __insert(root->right_, key, val);
-    else root->val_ = val;
+    if (root->key > key) root->left = insert(root->left, key, val);
+    else if (root->key < key) root->right = insert(root->right, key, val);
+    else root->value = val;
     return root;
 }
 
-BST::Node *BST::__find(BST::Node *root, const string &key) {
+bst::node *bst::find(bst::node *root, const string &key) {
     if (!root) return nullptr;
-    if (root->key_ > key) return __find(root->left_, key);
-    else if (root->key_ < key) return __find(root->right_, key);
+    if (root->key > key) return find(root->left, key);
+    else if (root->key < key) return find(root->right, key);
     return root;
 }
 
-BST::Node *BST::__find_min(BST::Node *root) {
+bst::node *bst::find_min(bst::node *root) {
     if (!root) return nullptr;
-    while (root->left_) root = root->left_;
+    while (root->left) root = root->left;
     return root;
 }
 
-BST::Node *BST::__find_max(BST::Node *root) {
+bst::node *bst::find_max(bst::node *root) {
     if (!root) return nullptr;
-    while (root->right_) root = root->right_;
+    while (root->right) root = root->right;
     return root;
 }
 
 
-BST::Node *BST::__remove(Node *root, const string &key) {
+bst::node *bst::remove(node *root, const string &key) {
     if (!root) return nullptr;
-    Node *succ = root;
-    if (root->key_ > key) root->left_ = __remove(root->left_, key);
-    else if (root->key_ < key) root->right_ = __remove(root->right_, key);
+    node *succ = root;
+    if (root->key > key) root->left = remove(root->left, key);
+    else if (root->key < key) root->right = remove(root->right, key);
     else {
-        if (!root->left_) succ = root->right_;
-        else if (!root->right_) succ = root->left_;
+        if (!root->left) succ = root->right;
+        else if (!root->right) succ = root->left;
         else {
-            succ = new Node(*__find_min(root->right_));
-            succ->left_ = root->left_;
-            succ->right_ = __remove(root->right_, succ->key_);
+            succ = new node(*find_min(root->right));
+            succ->left = root->left;
+            succ->right = remove(root->right, succ->key);
         }
         delete root;
         --count_;
@@ -88,22 +88,22 @@ BST::Node *BST::__remove(Node *root, const string &key) {
     return succ;
 }
 
-queue<const BST::Node *> BST::inorder() const {
-    queue<const Node *> ordered;
-    __inorder(root_, ordered);
+queue<const bst::node *> bst::inorder() const {
+    queue<const node *> ordered;
+    inorder(root_, ordered);
     return ordered;
 }
 
-void BST::__inorder(BST::Node *root, queue<const Node *> &nodes) {
+void bst::inorder(bst::node *root, queue<const node *> &nodes) {
     if (!root) return;
-    __inorder(root->left_, nodes);
+    inorder(root->left, nodes);
     nodes.emplace(root);
-    __inorder(root->right_, nodes);
+    inorder(root->right, nodes);
 }
 
-void BST::__clear(BST::Node *root) {
+void bst::clear(bst::node *root) {
     if (!root) return;
-    __clear(root->left_);
-    __clear(root->right_);
+    clear(root->left);
+    clear(root->right);
     delete root;
 }

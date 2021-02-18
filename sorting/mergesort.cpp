@@ -3,7 +3,7 @@
 #include "mergesort.h"
 #include "insertion_sort.h"
 
-void Mergesort::merge(vector<double> &arr, vector<double> &aux, int lo, int mid, int hi) {
+void mergesort::merge(vector<double> &arr, vector<double> &aux, int lo, int mid, int hi) {
     for (int k = lo; k <= hi; ++k) aux[k] = arr[k];
     int i = lo, j = mid + 1;
     for (int k = lo; k <= hi; ++k) {
@@ -14,11 +14,11 @@ void Mergesort::merge(vector<double> &arr, vector<double> &aux, int lo, int mid,
     }
 }
 
-void Mergesort::sort(vector<double> &arr, vector<double> &aux, int lo, int hi) {
+void mergesort::sort(vector<double> &arr, vector<double> &aux, int lo, int hi) {
     if (lo >= hi) return;
     // optimization #2: Use insertion sort for small subarray
     if (hi - lo <= insort_cutoff) {
-        Insertionsort::sort_v2(arr, lo, hi + 1);
+        insertionsort::sort_v2(arr, lo, hi + 1);
         return;
     }
     int mid = lo + ((hi - lo) / 2);
@@ -29,14 +29,14 @@ void Mergesort::sort(vector<double> &arr, vector<double> &aux, int lo, int hi) {
     merge(arr, aux, lo, mid, hi);
 }
 
-void Mergesort::sort(vector<double> &arr, int st, int ed) {
+void mergesort::sort(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
     // optimization #1: use pre-allocated array for buffer.
     vector<double> aux(arr.size());
     sort(arr, aux, st, ed - 1);
 }
 
-void Mergesort::sort_v2(vector<double> &arr, int st, int ed) {
+void mergesort::sort_v2(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
     int n = ed - st;
     vector<double> aux(arr.size());

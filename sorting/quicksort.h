@@ -8,7 +8,7 @@
  * Best Complexity: O(NlgN)
  * Worse Complexity: O(N^2)
  * Remark: Poor performance in partial sorted array, shuffle before sort is preferred */
-class Quicksort {
+class quicksort {
 public:
     static constexpr int insort_cutoff = 10;
     // Quicksort: Original implementation

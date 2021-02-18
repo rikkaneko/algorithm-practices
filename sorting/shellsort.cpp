@@ -3,7 +3,7 @@
 #include "shellsort.h"
 #include "binary_search.h"
 
-int Shellsort::get_max_gap(int n) {
+int shellsort::get_max_gap(int n) {
     int st = 0, ed = sizeof(tokuda_seq) / sizeof(tokuda_seq[0]) - 1;
     if (n <= 1) return 0;
     if (n > tokuda_seq[ed]) return ed;
@@ -17,7 +17,7 @@ int Shellsort::get_max_gap(int n) {
     return (tokuda_seq[mid] < n) ? mid : mid - 1;
 }
 
-void Shellsort::sort(vector<double> &arr, int st, int ed) {
+void shellsort::sort(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
     for (int index = get_max_gap(ed - st); index >= 0; --index) {
         int gap = tokuda_seq[index];

@@ -7,7 +7,7 @@
  * Average Complexity: O(NlgN)
  * Best Complexity: O(N)
  * Worse Complexity: O(NlgN) */
-class Heapsort {
+class heapsort {
 public:
     // Heapsort
     static void sort(vector<double> &arr, int st = 0, int ed = -1);

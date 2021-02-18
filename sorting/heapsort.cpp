@@ -2,7 +2,7 @@
  * Copyright (c) 2020 rikkaneko. */
 #include "heapsort.h"
 
-void Heapsort::sink(vector<double> &arr, int pos, int st, int ed) {
+void heapsort::sink(vector<double> &arr, int pos, int st, int ed) {
     int child = st + (pos - st) * 2 + 1;
     while (child <= ed) {
         if (child < ed && arr[child] < arr[child + 1]) ++child;
@@ -13,7 +13,7 @@ void Heapsort::sink(vector<double> &arr, int pos, int st, int ed) {
     }
 }
 
-void Heapsort::sort(vector<double> &arr, int st, int ed) {
+void heapsort::sort(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
     int n = ed - st;
     for (int k = st + n / 2 - 1; k >= st; --k) {

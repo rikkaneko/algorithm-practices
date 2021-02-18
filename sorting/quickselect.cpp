@@ -3,12 +3,12 @@
 #include "quicksort.h"
 #include "knuth_shuffle.h"
 
-double Quicksort::select(const vector<double> &arr, int k, int st, int ed) {
+double quicksort::select(const vector<double> &arr, int k, int st, int ed) {
     if (ed == -1) ed = arr.size();
     if (st == ed - 1) return arr[st];
     --k;
     vector<double> temp(arr.begin() + st, arr.begin() + ed);
-    Knuthshuffle::shuffle(temp);
+    knuthshuffle::shuffle(temp);
     int lo = 0, hi = temp.size() - 1;
     while (hi > lo) {
         int pos = partation(temp, lo, hi);

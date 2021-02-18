@@ -8,7 +8,7 @@
  * Best Complexity: O(N)
  * Worse Complexity: O(N^2)
  * Remark: Good for small array or partially ordered array */
-class Insertionsort {
+class insertionsort {
 public:
     // Insertion sort: Original implementation
     static void sort(vector<double> &arr, int st = 0, int ed = -1);

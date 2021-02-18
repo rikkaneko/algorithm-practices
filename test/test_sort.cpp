@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]) {
     auto arr = parse_arg(argc, argv);
     print_arr(arr);
-    Insertionsort::sort_v3(arr);
+    insertionsort::sort_v3(arr);
     print_arr(arr);
     return is_sorted(arr);
 }

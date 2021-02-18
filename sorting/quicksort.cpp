@@ -4,7 +4,7 @@
 #include "insertion_sort.h"
 #include "knuth_shuffle.h"
 
-int Quicksort::partation(vector<double> &arr, int lo, int hi) {
+int quicksort::partation(vector<double> &arr, int lo, int hi) {
     double pivot = arr[hi];
     int i = lo, j = hi - 1;
     while (true) {
@@ -17,11 +17,11 @@ int Quicksort::partation(vector<double> &arr, int lo, int hi) {
     return i;
 }
 
-void Quicksort::__sort(vector<double> &arr, int lo, int hi) {
+void quicksort::__sort(vector<double> &arr, int lo, int hi) {
     if (lo >= hi) return;
     // optimization #1: Use insertion sort for small subarray
     if (hi - lo <= insort_cutoff) {
-        Insertionsort::sort_v2(arr, lo, hi + 1);
+        insertionsort::sort_v2(arr, lo, hi + 1);
         return;
     }
     // optimization #2: use the median
@@ -31,18 +31,18 @@ void Quicksort::__sort(vector<double> &arr, int lo, int hi) {
 }
 
 
-void Quicksort::sort(vector<double> &arr, int st, int ed) {
+void quicksort::sort(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
     // optimization #1: Shuffle the array
-    Knuthshuffle::shuffle(arr, st, ed);
+    knuthshuffle::shuffle(arr, st, ed);
     __sort(arr, st, ed - 1);
 }
 
-void Quicksort::__sort_v2(vector<double> &arr, int lo, int hi) {
+void quicksort::__sort_v2(vector<double> &arr, int lo, int hi) {
     if (lo >= hi) return;
     // optimization #2: Use insertion sort for small subarray
     if (hi - lo <= insort_cutoff) {
-        Insertionsort::sort_v2(arr, lo, hi + 1);
+        insertionsort::sort_v2(arr, lo, hi + 1);
         return;
     }
     int i = lo, lt = lo, gt = hi;
@@ -56,17 +56,17 @@ void Quicksort::__sort_v2(vector<double> &arr, int lo, int hi) {
     __sort_v2(arr, gt + 1, hi);
 }
 
-void Quicksort::sort_v2(vector<double> &arr, int st, int ed) {
+void quicksort::sort_v2(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
-    Knuthshuffle::shuffle(arr, st, ed);
+    knuthshuffle::shuffle(arr, st, ed);
     __sort_v2(arr, st, ed - 1);
 }
 
-void Quicksort::__sort_v3(vector<double> &arr, int lo, int hi) {
+void quicksort::__sort_v3(vector<double> &arr, int lo, int hi) {
     if (lo >= hi) return;
     // optimization #2: Use insertion sort for small subarray
     if (hi - lo <= insort_cutoff) {
-        Insertionsort::sort_v2(arr, lo, hi + 1);
+        insertionsort::sort_v2(arr, lo, hi + 1);
         return;
     }
     int i = lo + 1, lt = lo + 1, gt = hi - 1;
@@ -84,8 +84,8 @@ void Quicksort::__sort_v3(vector<double> &arr, int lo, int hi) {
     if (arr[lt] != arr[gt]) __sort_v3(arr, lt + 1, gt - 1);
 }
 
-void Quicksort::sort_v3(vector<double> &arr, int st, int ed) {
+void quicksort::sort_v3(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
-    Knuthshuffle::shuffle(arr, st, ed);
+    knuthshuffle::shuffle(arr, st, ed);
     __sort_v3(arr, st, ed - 1);
 }

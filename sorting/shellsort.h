@@ -7,7 +7,7 @@
  * Average Complexity: -
  * Best Complexity: -
  * Worse Complexity: O(N^2) */
-class Shellsort {
+class shellsort {
 public:
     /* A108870 Tokuda's good set of increments for Shell sort.
      * Source: https://oeis.org/A108870 */

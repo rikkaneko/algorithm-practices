@@ -2,7 +2,7 @@
  * Copyright (c) 2021 rikkaneko. */
 #include "binary_search.h"
 
-int BinarySearch::search(const vector<double> &arr, double value, int mode, int st, int ed) {
+int binary_search::search(const vector<double> &arr, double value, int mode, int st, int ed) {
     if (ed == -1) ed = arr.size() - 1;
     else --ed;
     if (mode == nearest) {

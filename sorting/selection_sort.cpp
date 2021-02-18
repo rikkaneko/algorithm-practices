@@ -2,7 +2,7 @@
  * Copyright (c) 2020 rikkaneko. */
 #include "selection_sort.h"
 
-void Selectionsort::sort(vector<double> &arr, int st, int ed) {
+void selectionsort::sort(vector<double> &arr, int st, int ed) {
     if (ed == -1) ed = arr.size();
     for (int i = st; i < ed; ++i) {
         int min = i;

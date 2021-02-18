@@ -8,7 +8,7 @@
  * Best Complexity: O(NlgN)
  * Worse Complexity: O(NlgN)
  * Remark: Stable */
-class Mergesort {
+class mergesort {
 public:
     static constexpr int insort_cutoff = 10;
     // Mergesort: Original implementation
