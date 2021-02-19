@@ -4,6 +4,8 @@ project(algorithm_practices)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/output)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/output)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+
 include_directories(include)
 include_directories(sorting)
 include_directories(data_structure)
@@ -19,4 +21,4 @@ add_executable(test_linked_list test/test_linked_list.cpp data_structure/linked_
 
 add_executable(test_binary_search test/test_binary_search.cpp searching/binary_search.cpp include/common.cpp)
 
-add_executable(test_bst test/test_bst.cpp data_structure/bst.cpp data_structure/rbt.cpp include/common.cpp)
+add_executable(test_bst test/test_bst.cpp data_structure/bst.cpp data_structure/rbt.cpp data_structure/queue.cpp include/common.cpp)

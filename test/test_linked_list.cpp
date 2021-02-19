@@ -3,7 +3,7 @@
 #include "common.h"
 #include "linked_list.h"
 
-void print_list(const linked_list &list) {
+void print_list(const nnplib::linked_list &list) {
     auto iter = list.get_iterator();
     auto ent = iter.get();
     while ((ent = iter.get()) != nullptr) {
@@ -13,7 +13,7 @@ void print_list(const linked_list &list) {
 }
 
 int main(int argc, char *argv[]) {
-    linked_list list;
+    nnplib::linked_list list;
     list.insert("color", "red");
     list.insert("quality", "95%");
     list.insert("!wrongdata!", "xxx");

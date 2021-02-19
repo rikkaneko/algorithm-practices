@@ -1,8 +1,9 @@
 /* This file is part of algorithm_practices.
  * Copyright (c) 2021 rikkaneko. */
 #include "bst.h"
+#include "common.h"
 
-void print_bst(const bst &bst) {
+void print_bst(const nnplib::bst &bst) {
     auto iter = bst.get_iterator();
     auto ent = iter.get();
     std::cout << "This BST tree has " << bst.get_size() << " elements" << std::endl;
@@ -12,7 +13,7 @@ void print_bst(const bst &bst) {
     }
 }
 
-void find_bst(const bst &bst, const string &key) {
+void find_bst(const nnplib::bst &bst, const std::string &key) {
     auto result = bst.find(key);
     if (!result) {
         std::cout << key << " not found" << std::endl;
@@ -22,7 +23,7 @@ void find_bst(const bst &bst, const string &key) {
 }
 
 int main(int argc, char *argv[]) {
-    bst bst;
+    nnplib::bst bst;
     bst.insert("name", "Bob");
     bst.insert("food", "tutu");
     bst.insert("age", "10");

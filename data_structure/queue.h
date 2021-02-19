@@ -1,26 +1,28 @@
 /* This file is part of algorithm_practices.
  * Copyright (c) 2020 rikkaneko. */
 #pragma once
-#include "common.h"
+#include <vector>
 
-/* Binary Heap (a.k.a Priority Queue)
- * Insert Complexity: O(lgN)
- * Pop Max Complexity: O(lgN)
- * Get Max Complexity: O(lgN) */
-class queue {
-public:
-    explicit queue(int n = 64): arr_(n) {}
+namespace nnplib {
+    /* Binary Heap (a.k.a Priority Queue)
+         * Insert Complexity: O(lgN)
+         * Pop Max Complexity: O(lgN)
+         * Get Max Complexity: O(lgN) */
+    class queue {
+    public:
+        explicit queue(int n = 64): arr_(n) {}
+        
+        int get_size() const { return count_; }
+        
+        void insert(double key);
+        double pop_max();
+        bool pop(double key);
     
-    int get_size() const { return count_; }
-    
-    void insert(double key);
-    double pop_max();
-    bool pop(double key);
-
-private:
-    void swim(int pos);
-    void sink(int pos);
-    
-    vector<double> arr_;
-    int count_ = 0;
-};
+    private:
+        void swim(int pos);
+        void sink(int pos);
+        
+        std::vector<double> arr_;
+        int count_ = 0;
+    };
+}
