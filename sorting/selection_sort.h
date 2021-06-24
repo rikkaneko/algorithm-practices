@@ -5,9 +5,9 @@
 
 namespace nnplib {
     /* Selection sort
-         * Average Complexity: O(N^2)
-         * Best Complexity: O(N^2)
-         * Worse Complexity: O(N^2) */
+     * Average Complexity: O(N^2)
+     * Best Complexity: O(N^2)
+     * Worse Complexity: O(N^2) */
     class selectionsort {
     public:
         // Selection sort

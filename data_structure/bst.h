@@ -7,12 +7,12 @@
 
 namespace nnplib {
     /* Binary Search Tree
-         * Search Worst Complexity: O(N)
-         * Search Average Complexity: O(lgN)
-         * Insert Worst Complexity: O(N)
-         * Insert Average Complexity: O(lgN)
-         * Delete Worst Complexity: O(N)
-         * Delete Average Complexity: O(sqrt(N)) */
+     * Search Worst Complexity: O(N)
+     * Search Average Complexity: O(lgN)
+     * Insert Worst Complexity: O(N)
+     * Insert Average Complexity: O(lgN)
+     * Delete Worst Complexity: O(N)
+     * Delete Average Complexity: O(sqrt(N)) */
     class bst {
     public:
         class iterator;

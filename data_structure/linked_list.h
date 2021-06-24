@@ -5,12 +5,12 @@
 
 namespace nnplib {
     /* Double Linked list
-         * Search Worst Complexity: O(N)
-         * Search Average Complexity: O(N/2)
-         * Insert Worst Complexity: O(N)
-         * Insert Average Complexity: O(N)
-         * Delete Worst Complexity: O(N)
-         * Delete Average Complexity: O(N/2) */
+     * Search Worst Complexity: O(N)
+     * Search Average Complexity: O(N/2)
+     * Insert Worst Complexity: O(N)
+     * Insert Average Complexity: O(N)
+     * Delete Worst Complexity: O(N)
+     * Delete Average Complexity: O(N/2) */
     class linked_list {
     public:
         class iterator;

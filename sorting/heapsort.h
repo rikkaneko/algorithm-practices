@@ -5,9 +5,9 @@
 
 namespace nnplib {
     /* Heapsort
-         * Average Complexity: O(NlgN)
-         * Best Complexity: O(N)
-         * Worse Complexity: O(NlgN) */
+     * Average Complexity: O(NlgN)
+     * Best Complexity: O(N)
+     * Worse Complexity: O(NlgN) */
     class heapsort {
     public:
         static void sort(std::vector<double> &arr, int st = 0, int ed = -1);

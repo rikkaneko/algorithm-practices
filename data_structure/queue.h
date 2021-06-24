@@ -5,9 +5,9 @@
 
 namespace nnplib {
     /* Binary Heap (a.k.a Priority Queue)
-         * Insert Complexity: O(lgN)
-         * Pop Max Complexity: O(lgN)
-         * Get Max Complexity: O(lgN) */
+     * Insert Complexity: O(lgN)
+     * Pop Max Complexity: O(lgN)
+     * Get Max Complexity: O(lgN) */
     class queue {
     public:
         explicit queue(int n = 64): arr_(n) {}

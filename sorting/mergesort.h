@@ -5,10 +5,10 @@
 
 namespace nnplib {
     /* Mergesort
-         * Average Complexity: O(NlgN)
-         * Best Complexity: O(NlgN)
-         * Worse Complexity: O(NlgN)
-         * Remark: Stable */
+     * Average Complexity: O(NlgN)
+     * Best Complexity: O(NlgN)
+     * Worse Complexity: O(NlgN)
+     * Remark: Stable */
     class mergesort {
     public:
         static constexpr int insort_cutoff = 10;

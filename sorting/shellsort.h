@@ -5,9 +5,9 @@
 
 namespace nnplib {
     /* Shell sort
-         * Average Complexity: -
-         * Best Complexity: -
-         * Worse Complexity: O(N^2) */
+     * Average Complexity: -
+     * Best Complexity: -
+     * Worse Complexity: O(N^2) */
     class shellsort {
     public:
         /* A108870 Tokuda's good set of increments for Shell sort.

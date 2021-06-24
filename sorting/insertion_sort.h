@@ -5,10 +5,10 @@
 
 namespace nnplib {
     /* Insertion sort
-         * Average Complexity: O(N^2)
-         * Best Complexity: O(N)
-         * Worse Complexity: O(N^2)
-         * Remark: Good for small array or partially ordered array */
+     * Average Complexity: O(N^2)
+     * Best Complexity: O(N)
+     * Worse Complexity: O(N^2)
+     * Remark: Good for small array or partially ordered array */
     class insertionsort {
     public:
         // Insertion sort: Original implementation

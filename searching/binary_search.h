@@ -5,8 +5,8 @@
 
 namespace nnplib {
     /* Binary Search
-         * Search Worst Complexity: O(lgN)
-         * Search Average Complexity: O(lgN) */
+     * Search Worst Complexity: O(lgN)
+     * Search Average Complexity: O(lgN) */
     class binary_search {
     public:
         static constexpr int exact = 0; // search for the exact element, otherwise return -1
